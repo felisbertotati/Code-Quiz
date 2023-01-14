@@ -41,4 +41,13 @@ var quiz = [
     choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
     answer: "3. quotes",
   },
+  {
+    title: " How do you create a function in JavaScript?",
+    choices: [
+      " 1. function myFunction() { // code to be executed }",
+      "2. function()(//code to be executed)",
+      "3.myFunction function(){//code to be executed}",
+    ],
+    answer: " 1. function myFunction() { // code to be executed }",
+  },
 ];

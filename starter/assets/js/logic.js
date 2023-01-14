@@ -1,46 +1,58 @@
 // html id convert in variables
-var timer = document.querySelector("#time");
-var startScreen = document.querySelector("#start-screen");
-var start = document.querySelector("#start"); //button
-var question = document.querySelector("#questions");
-var questionTitle = document.querySelector("#question-title");
-var choices = document.querySelector("#choices");
-var endScreen = document.querySelector("#end-screen");
-var finalScore = document.querySelector("#final-score");
-var initials = document.querySelector("#initials");
-var submit = document.querySelector("#submit");
-var feedback = document.querySelector("#feedback");
+var timer = document.getElementById("time");
+var startScreen = document.getElementById("start-screen");
+var startE1 = document.getElementById("start"); //button
+var questionE1 = document.getElementById("questions");
+var questionTitle = document.getElementById("question-title");
+var choicesE1 = document.getElementById("choices");
+var endScreen = document.getElementById("end-screen");
+var finalScoreE1 = document.getElementById("final-score");
+var initials = document.getElementById("initials");
+var submitE1 = document.getElementById("submit");
+var feedback = document.getElementById("feedback");
 
 var timerCount;
 var timeLeft;
-
+var currentQestion;
+var time;
+//start the game
+function startGame() {
+  countdown();
+  displayQuestions();
+}
+startE1.addEventListener("click", startGame);
 //time function
 function countdown() {
   //when User click in the start button the timer starts
-  start.addEventListener("click", countdown);
+  timerCount = 75;
   //var timeLeft = 75;
-
-  timerCount = setInterval(function () {
-    timeLeft--;
-    timer.textContent = timeLeft;
+  time = setInterval(function () {
+    timer.textContent = timerCount;
     //if user wons the game
-    if (timeLeft >= 0) {
-      clearInterval(timerCount);
+    timerCount--;
+    if (timeLeft <= 0) {
+      clearInterval(time);
     }
     //add winner function
     if (timeLeft === 0) {
-      clearInterval(timer);
+      clearInterval(time);
       //user lose the game function
+      endGame();
     }
   }, 1000);
 }
+
 // display the questions
-function displayQuestions() {}
+function displayQuestions() {
+  //quizQuestions.textContent = quiz.title;
+  //if(currentQestion=== quizQuestions.length)
+  var question = quiz[Math.floor(Math.random() * quiz.length)];
+  questionE1.textContent = question.title;
+  console.log(question);
+}
 //check user questions
 function questionCheck() {}
 // end of the game
 function endGame() {}
 //check the results
 function CheckResults() {}
-//save all the results
-function saveResults() {}
