@@ -11,10 +11,15 @@ var initials = document.getElementById("initials");
 var submitE1 = document.getElementById("submit");
 var feedback = document.getElementById("feedback");
 
+var correct = new Audio("assets/sfx/correct.wav");
+var incorrect = new Audio("assets/sfx/incorrect.wav");
+
+var questions;
 var timerCount;
 var timeLeft;
-var currentQestion;
+var currentQestion = 0;
 var time;
+var score;
 //start the game
 function startGame() {
   countdown();
@@ -41,16 +46,22 @@ function countdown() {
     }
   }, 1000);
 }
-
+function shuffle(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 // display the questions
 function displayQuestions() {
   //var random questions
-  var question = quiz[Math.floor(Math.random() * quiz.length)];
+  questions = shuffle(quiz);
+  console.log(questions);
   //define questions
-  questionTitle.textContent = question.title;
-  console.log(question);
+  questionTitle.textContent = questions[currentQestion].title;
   //add choices in the list
-  question.choices.forEach((index) => {
+  questions[currentQestion].choices.forEach((index) => {
     var choicesLi = document.createElement("button");
     choicesLi.textContent = index;
     choicesE1.appendChild(choicesLi);
@@ -60,12 +71,27 @@ function displayQuestions() {
       "text-align: left; width:400px; margin-bottom: 10px; height: 50px"
     );
     //console.log(index);
+    choicesLi.addEventListener("click", questionCheck);
   });
+
   //remove class hide to show the choices
   questionE1.classList.remove("hide");
 }
 //check user questions
-function questionCheck() {}
+function questionCheck(event) {
+  console.log(event.currentTarget.textContent);
+  if (event.currentTarget.textContent === questions[currentQestion].answer) {
+    score += 10;
+    correct.play();
+  } else {
+    timerCount -= 10;
+    incorrect.play();
+  }
+  currentQestion++;
+  displayQuestions();
+  choicesE1.classList.add("hide");
+}
+
 // end of the game
 function endGame() {}
 //check the results
