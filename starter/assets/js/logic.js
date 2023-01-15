@@ -56,6 +56,7 @@ function displayQuestions() {
     choicesE1.appendChild(choicesLi);
     console.log(index);
   });
+  //remove class hide to show the choices
   questionE1.classList.remove("hide");
 }
 //check user questions
