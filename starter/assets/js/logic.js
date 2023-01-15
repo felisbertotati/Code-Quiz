@@ -58,11 +58,14 @@ function displayQuestions() {
   //var random questions
   questions = shuffle(quiz);
   console.log(questions);
+  var choicesLi;
+  choicesE1.innerHTML = "";
   //define questions
+
   questionTitle.textContent = questions[currentQestion].title;
   //add choices in the list
   questions[currentQestion].choices.forEach((index) => {
-    var choicesLi = document.createElement("button");
+    choicesLi = document.createElement("button");
     choicesLi.textContent = index;
     choicesE1.appendChild(choicesLi);
     //style button
@@ -89,7 +92,7 @@ function questionCheck(event) {
   }
   currentQestion++;
   displayQuestions();
-  choicesE1.classList.add("hide");
+  //choicesE1.classList.add("hide");
 }
 
 // end of the game
