@@ -44,11 +44,19 @@ function countdown() {
 
 // display the questions
 function displayQuestions() {
-  //quizQuestions.textContent = quiz.title;
-  //if(currentQestion=== quizQuestions.length)
+  //var random questions
   var question = quiz[Math.floor(Math.random() * quiz.length)];
-  questionE1.textContent = question.title;
+  //define questions
+  questionTitle.textContent = question.title;
   console.log(question);
+  //add choices in the list
+  question.choices.forEach((index) => {
+    var choicesLi = document.createElement("button");
+    choicesLi.textContent = index;
+    choicesE1.appendChild(choicesLi);
+    console.log(index);
+  });
+  questionE1.classList.remove("hide");
 }
 //check user questions
 function questionCheck() {}

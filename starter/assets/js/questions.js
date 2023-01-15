@@ -2,52 +2,42 @@ var quiz = [
   {
     title: "Arrays in JavaScript ca be used to store _______.",
     choices: [
-      "1. numbers and strings",
-      "2. other arrays",
-      "3. booleans",
-      " 4. all of the above",
+      " numbers and strings",
+      " other arrays",
+      " booleans",
+      "  all of the above",
     ],
-    answer: "4. all of the above",
+    answer: " all of the above",
   },
   {
     title:
       "A vey useful tool used during development and debbugging for printing content to the debugger is: ",
-    choices: [
-      "1. JavaScript",
-      "2. terminal/bash",
-      "3. for loops",
-      "4. console.log",
-    ],
-    answer: "4. console.log",
+    choices: [" JavaScript", " terminal/bash", " for loops", " console.log"],
+    answer: " console.log",
   },
   {
     title: "Commonly used data types DO NOT include:",
-    choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-    answer: "3. alers",
+    choices: [" strings", " booleans", " alerts", " numbers"],
+    answer: " alers",
   },
   {
     title: "The condition in an if / else statement is enclosed within ____.",
-    choices: [
-      "1. quotes",
-      "2. curly brackets",
-      "3. parentheses",
-      "4. square brackets",
-    ],
-    answer: "3. parentheses",
+    choices: [" quotes", " curly brackets", " parentheses", " square brackets"],
+    answer: " parentheses",
   },
   {
     title:
       "String values must be enclosed within ____ when being assigned to variables.",
-    choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
-    answer: "3. quotes",
+    choices: [" commas", "curly brackets", " quotes", " parentheses"],
+    answer: " quotes",
   },
   {
     title: " How do you create a function in JavaScript?",
     choices: [
-      " 1. function myFunction() { // code to be executed }",
-      "2. function()(//code to be executed)",
-      "3.myFunction function(){//code to be executed}",
+      "  function myFunction() { // code to be executed }",
+      " function()(//code to be executed)",
+      "myFunction function(){//code to be executed}",
     ],
-    answer: " 1. function myFunction() { // code to be executed }",
+    answer: "  function myFunction() { // code to be executed }",
   },
 ];
