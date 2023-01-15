@@ -51,3 +51,5 @@ var quiz = [
   //     answer: "  function myFunction() { // code to be executed }",
   //   },
 ];
+
+//Fisher-yates shuffle algorithm
