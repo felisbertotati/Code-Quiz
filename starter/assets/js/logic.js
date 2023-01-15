@@ -54,7 +54,12 @@ function displayQuestions() {
     var choicesLi = document.createElement("button");
     choicesLi.textContent = index;
     choicesE1.appendChild(choicesLi);
-    console.log(index);
+    //style button
+    choicesLi.setAttribute(
+      "style",
+      "text-align: left; width:400px; margin-bottom: 10px; height: 50px"
+    );
+    //console.log(index);
   });
   //remove class hide to show the choices
   questionE1.classList.remove("hide");
