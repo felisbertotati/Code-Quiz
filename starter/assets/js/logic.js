@@ -7,12 +7,14 @@ var questionTitle = document.getElementById("question-title");
 var choicesE1 = document.getElementById("choices");
 var endScreen = document.getElementById("end-screen");
 var finalScoreE1 = document.getElementById("final-score");
-var initials = document.getElementById("initials");
+var initialsE1 = document.getElementById("initials");
 var submitE1 = document.getElementById("submit");
 var feedback = document.getElementById("feedback");
 
 var correct = new Audio("assets/sfx/correct.wav");
 var incorrect = new Audio("assets/sfx/incorrect.wav");
+// get array from storage
+var highScores = JSON.parse(localStorage.getItem("highScores") || []);
 
 var questions = shuffle(quiz);
 var timerCount;
@@ -119,7 +121,25 @@ function endGame() {
   finalScoreE1.textContent = score;
   //add final end-screen class
   endScreen.classList.remove("hide");
-  checkResults(finalScore);
+  saveResults(finalScore);
 }
 //check the results
-function checkResults() {}
+
+function saveResults() {
+  //save initials in a variable
+  var initials = initialsE1.value;
+
+  //new array with initials and score
+  var nameInitials = {
+    initials: initials,
+    score: finalScore,
+  };
+  //push score to array
+  highScores.push(nameInitials);
+
+  highScores.sort((a, b) => {
+    a.score - b.score;
+  });
+  console.log(highScores);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}

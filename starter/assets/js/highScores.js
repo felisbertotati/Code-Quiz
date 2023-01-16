@@ -1,2 +1,2 @@
 //save all the results
-function saveResults() {}
+function highScores() {}
