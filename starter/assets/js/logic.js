@@ -14,12 +14,14 @@ var feedback = document.getElementById("feedback");
 var correct = new Audio("assets/sfx/correct.wav");
 var incorrect = new Audio("assets/sfx/incorrect.wav");
 
-var questions;
+var questions = shuffle(quiz);
 var timerCount;
 var timeLeft;
 var currentQestion = 0;
 var time;
-var score;
+var score = 0;
+var currentScore = 0;
+var finalScore;
 //start the game
 function startGame() {
   countdown();
@@ -46,6 +48,8 @@ function countdown() {
     }
   }, 1000);
 }
+//Fisher-yates shuffle algorithm
+
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
@@ -55,9 +59,6 @@ function shuffle(array) {
 }
 // display the questions
 function displayQuestions() {
-  //var random questions
-  questions = shuffle(quiz);
-  console.log(questions);
   var choicesLi;
   choicesE1.innerHTML = "";
   //define questions
@@ -82,20 +83,43 @@ function displayQuestions() {
 }
 //check user questions
 function questionCheck(event) {
+  //when user click in the button equals to the current question correct answer
   console.log(event.currentTarget.textContent);
   if (event.currentTarget.textContent === questions[currentQestion].answer) {
+    //increase the score
     score += 10;
+    //play correct sound
     correct.play();
   } else {
+    //if user fail decrease -10 in time
     timerCount -= 10;
+    //play incorrect sound
     incorrect.play();
   }
+  //increase the question index
   currentQestion++;
-  displayQuestions();
-  //choicesE1.classList.add("hide");
+  //call display Question function
+  console.log(currentQestion);
+
+  //if there are no more questions, end the game
+  if (currentQestion === questions.length) {
+    //remove questions
+    questionE1.classList.add("hide");
+    endGame();
+  } else {
+    // otherwise pass for the next question
+    displayQuestions();
+  }
 }
 
 // end of the game
-function endGame() {}
+function endGame() {
+  clearInterval(time);
+  score = score + timerCount;
+  finalScoreE1.textContent = score;
+  //add final end-screen class
+  endScreen.classList.remove("hide");
+  checkResults(finalScore);
+}
 //check the results
-function CheckResults() {}
+function checkResults() {}

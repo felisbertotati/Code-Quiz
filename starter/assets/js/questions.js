@@ -2,28 +2,28 @@ var quiz = [
   {
     title: "Arrays in JavaScript ca be used to store _______.",
     choices: [
-      " 1. numbers and strings",
-      " 2. other arrays",
-      " 3. booleans",
-      "  4. all of the above",
+      "1. numbers and strings",
+      "2. other arrays",
+      "3. booleans",
+      "4. all of the above",
     ],
-    answer: " 4. all of the above",
+    answer: "4. all of the above",
   },
   {
     title:
       "A vey useful tool used during development and debbugging for printing content to the debugger is: ",
     choices: [
       "1. JavaScript",
-      " 2. console.log",
+      "2. console.log",
       "3. terminal/bash",
       "4. for loops",
     ],
-    answer: " 2. console.log",
+    answer: "2. console.log",
   },
   {
     title: "Commonly used data types DO NOT include:",
     choices: [" 1. strings", "2. booleans", "3. alerts", "4. numbers"],
-    answer: "3. alers",
+    answer: "3. alerts",
   },
   {
     title: "The condition in an if / else statement is enclosed within ____.",
@@ -51,5 +51,3 @@ var quiz = [
   //     answer: "  function myFunction() { // code to be executed }",
   //   },
 ];
-
-//Fisher-yates shuffle algorithm
