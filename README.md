@@ -10,5 +10,9 @@ In this project I had to create a multiple-choice coding quiz such can keep trac
 * Game finish when user answer all the questions or the timer reaches 0;
 * User can save the initials and score.
 
+## Preview
 
+ ![alt text](https://github.com/felisbertotati/Code-Quiz/blob/main/starter/assets/images/screenshot.png?raw=true)
+ 
+ ## Link
 
