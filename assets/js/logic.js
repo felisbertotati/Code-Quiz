@@ -2,7 +2,6 @@
 var timer = document.getElementById("time");
 var startScreen = document.getElementById("start-screen");
 var startE1 = document.getElementById("start"); //button
-var startWrpr = document.querySelector(".start");
 var questionE1 = document.getElementById("questions");
 var questionTitle = document.getElementById("question-title");
 var choicesE1 = document.getElementById("choices");
@@ -11,8 +10,11 @@ var finalScoreE1 = document.getElementById("final-score");
 var initialsE1 = document.getElementById("initials");
 var submitE1 = document.getElementById("submit");
 var feedback = document.getElementById("feedback");
+//html class convert in variables
 var scoreInput = document.querySelector(".score-input");
+var startWrpr = document.querySelector(".start");
 
+// audio correct and incorrect convert in variable
 var correct = new Audio("assets/sfx/correct.wav");
 var incorrect = new Audio("assets/sfx/incorrect.wav");
 // get array from storage
