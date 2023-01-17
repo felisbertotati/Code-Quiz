@@ -12,7 +12,7 @@ In this project I had to create a multiple-choice coding quiz that can keep trac
 
 ## Preview
 
- ![alt text](https://github.com/felisbertotati/Code-Quiz/blob/main/starter/assets/images/screenshot.png?raw=true)
+ ![alt text](https://github.com/felisbertotati/Code-Quiz/blob/main/assets/images/screenshot.png?raw=true)
  
  ## Link
 
