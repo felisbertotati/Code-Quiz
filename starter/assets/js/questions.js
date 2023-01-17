@@ -1,15 +1,5 @@
 var quiz = [
   {
-    title: "Arrays in JavaScript ca be used to store _______.",
-    choices: [
-      "1. numbers and strings",
-      "2. other arrays",
-      "3. booleans",
-      "4. all of the above",
-    ],
-    answer: "4. all of the above",
-  },
-  {
     title:
       "A vey useful tool used during development and debbugging for printing content to the debugger is: ",
     choices: [
@@ -21,19 +11,24 @@ var quiz = [
     answer: "2. console.log",
   },
   {
-    title: "Commonly used data types DO NOT include:",
-    choices: [" 1. strings", "2. booleans", "3. alerts", "4. numbers"],
-    answer: "3. alerts",
+    title: "How can you add a comment in a JavaScript?",
+    choices: [
+      "1. <!--comment-->",
+      "2. //comment",
+      "3. //*comment ",
+      "4. 'comment",
+    ],
+    answer: "2. //comment",
   },
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
+    title: "How do you create a function in JavaScript?",
     choices: [
-      "1. parentheses",
-      "2. quotes",
-      "3. curly brackets",
-      "4. square brackets",
+      "1. function = myFunction()",
+      "2. function myFunction()",
+      "3. function:myFunction()",
+      "4. myfunction function()",
     ],
-    answer: "1. parentheses",
+    answer: "2. function myFunction()",
   },
   {
     title:
@@ -41,13 +36,9 @@ var quiz = [
     choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
     answer: "3. quotes",
   },
-  //   {
-  //     title: " How do you create a function in JavaScript?",
-  //     choices: [
-  //       "  function myFunction() { // code to be executed }",
-  //       " function()(//code to be executed)",
-  //       "myFunction function(){//code to be executed}",
-  //     ],
-  //     answer: "  function myFunction() { // code to be executed }",
-  //   },
+  {
+    title: " Inside which HTML element do we put the JavaScript?",
+    choices: ["1. <js>", "2. <script>", "3. <scripting>", "4. <javascript>"],
+    answer: "1. <js>",
+  },
 ];
