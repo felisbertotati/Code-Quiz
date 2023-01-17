@@ -150,14 +150,20 @@ function saveResults() {
   };
   //push score to array
   highScoresE1.push(nameInitials);
-  console.log(highScoresE1);
+
+  //console.log(highScoresE1);
+
+  //sort array
   highScoresE1.sort((a, b) => {
     a.score - b.score;
     return a.score - b.score;
   });
   console.log(highScoresE1);
 
+  //added highscores in local storage
   localStorage.setItem("highScoresE1", JSON.stringify(highScoresE1));
+
+  //get highscores html
   window.location.href = "./highscores.html";
 }
 submitE1.addEventListener("click", saveResults);

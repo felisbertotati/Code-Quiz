@@ -6,16 +6,17 @@ function highScores() {
   //get initials array
   let highScoresInitials = JSON.parse(localStorage.getItem("highScoresE1"));
   // populate highscores list
-  let list = "";
+  let li = "";
+
   highScoresInitials.forEach((score) => {
-    list = list + "<p>" + score.initials + "  :  " + score.score + "</p>";
+    li = li + "<p>" + score.initials + "  :  " + score.score + "</p>";
   });
 
-  highScoresFinal.innerHTML = list;
+  highScoresFinal.innerHTML = li;
 }
 
 highScores();
-
+//clear highScores
 clear.addEventListener("click", function () {
   localStorage.clear();
   highScoresFinal.innerHTML = "";
