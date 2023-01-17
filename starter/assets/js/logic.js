@@ -2,6 +2,7 @@
 var timer = document.getElementById("time");
 var startScreen = document.getElementById("start-screen");
 var startE1 = document.getElementById("start"); //button
+var startWrpr = document.querySelector(".start");
 var questionE1 = document.getElementById("questions");
 var questionTitle = document.getElementById("question-title");
 var choicesE1 = document.getElementById("choices");
@@ -10,11 +11,14 @@ var finalScoreE1 = document.getElementById("final-score");
 var initialsE1 = document.getElementById("initials");
 var submitE1 = document.getElementById("submit");
 var feedback = document.getElementById("feedback");
+var scoreInput = document.querySelector(".score-input");
 
 var correct = new Audio("assets/sfx/correct.wav");
 var incorrect = new Audio("assets/sfx/incorrect.wav");
 // get array from storage
-var highScores = JSON.parse(localStorage.getItem("highScores") || []);
+var highScoresE1 = JSON.parse(localStorage.getItem("highScoresE1")) || [];
+
+console.log(highScoresE1);
 
 var questions = shuffle(quiz);
 var timerCount;
@@ -24,10 +28,12 @@ var time;
 var score = 0;
 var currentScore = 0;
 var finalScore;
+
 //start the game
 function startGame() {
   countdown();
   displayQuestions();
+  startWrpr.innerHTML = "";
 }
 startE1.addEventListener("click", startGame);
 //time function
@@ -39,16 +45,18 @@ function countdown() {
     timer.textContent = timerCount;
     //if user wons the game
     timerCount--;
-    if (timeLeft <= 0) {
+    if (timerCount <= 0) {
       clearInterval(time);
+      timer.textContent = 0;
     }
-    //add winner function
-    if (timeLeft === 0) {
+    //if times run out user lose
+    if (timerCount === 0) {
       clearInterval(time);
-      //user lose the game function
+      //user lose the game
+      questionE1.classList.add("hide");
       endGame();
     }
-  }, 1000);
+  }, 500);
 }
 //Fisher-yates shuffle algorithm
 
@@ -63,6 +71,7 @@ function shuffle(array) {
 function displayQuestions() {
   var choicesLi;
   choicesE1.innerHTML = "";
+
   //define questions
 
   questionTitle.textContent = questions[currentQestion].title;
@@ -92,9 +101,14 @@ function questionCheck(event) {
     score += 10;
     //play correct sound
     correct.play();
+    feedback.textContent = "Correct!";
+    feedback.classList.remove("hide");
   } else {
     //if user fail decrease -10 in time
     timerCount -= 10;
+    feedback.textContent = "Incorrect!";
+    feedback.classList.remove("hide");
+
     //play incorrect sound
     incorrect.play();
   }
@@ -119,27 +133,40 @@ function endGame() {
   clearInterval(time);
   score = score + timerCount;
   finalScoreE1.textContent = score;
+  feedback.classList.add("hide");
   //add final end-screen class
   endScreen.classList.remove("hide");
-  saveResults(finalScore);
 }
 //check the results
 
 function saveResults() {
   //save initials in a variable
   var initials = initialsE1.value;
-
+  finalScore = score;
   //new array with initials and score
   var nameInitials = {
     initials: initials,
     score: finalScore,
   };
   //push score to array
-  highScores.push(nameInitials);
-
-  highScores.sort((a, b) => {
+  highScoresE1.push(nameInitials);
+  console.log(highScoresE1);
+  highScoresE1.sort((a, b) => {
     a.score - b.score;
+    return a.score - b.score;
   });
-  console.log(highScores);
-  localStorage.setItem("highScores", JSON.stringify(highScores));
+  console.log(highScoresE1);
+
+  localStorage.setItem("highScoresE1", JSON.stringify(highScoresE1));
+  window.location.href = "./highscores.html";
 }
+submitE1.addEventListener("click", saveResults);
+
+//key down event for enter
+scoreInput.addEventListener("keydown", function (event) {
+  // Check if the enter key was pressed
+  if (event.key === "Enter") {
+    // Submit the form
+    saveResults();
+  }
+});
