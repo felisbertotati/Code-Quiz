@@ -144,12 +144,18 @@ function endGame() {
 function saveResults() {
   //save initials in a variable
   var initials = initialsE1.value;
+  if (initials === "") {
+    alert("You did not enter your initials. Please enter your initials.");
+    return;
+  }
+
   finalScore = score;
   //new array with initials and score
   var nameInitials = {
     initials: initials,
     score: finalScore,
   };
+
   //push score to array
   highScoresE1.push(nameInitials);
 
