@@ -11,7 +11,7 @@ var quiz = [
     answer: "2. console.log",
   },
   {
-    title: "How can you add a comment in a JavaScript?",
+    title: "How can you add a comment in a JavaScript file?",
     choices: [
       "1. <!--comment-->",
       "2. //comment",
@@ -39,6 +39,6 @@ var quiz = [
   {
     title: " Inside which HTML element do we put the JavaScript?",
     choices: ["1. <js>", "2. <script>", "3. <scripting>", "4. <javascript>"],
-    answer: "1. <js>",
+    answer: "2. <script>",
   },
 ];
